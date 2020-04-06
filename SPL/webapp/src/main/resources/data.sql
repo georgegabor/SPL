@@ -1,0 +1,2 @@
+INSERT INTO user (id, email, name, role, status, password)
+SELECT 1, 'admin', 'admin', 'ADMIN', 'ACTIVE', '$2a$10$o9iloyeIZCVbnkQVH8A4n.jfUJEiTC0TWSCf/antkijU0wdBXN6dy' WHERE NOT EXISTS (SELECT * FROM user WHERE id = 1);

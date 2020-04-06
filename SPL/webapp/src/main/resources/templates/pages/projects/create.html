@@ -1,0 +1,93 @@
+<div class="row" th:fragment="create_form" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <form action="#" th:action="@{/projects/create}" th:object="${project}" method="post">
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/project_name.html :: project_name"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/auditor.html :: auditor"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/engineer.html :: engineer"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/date.html :: date"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/site.html :: site"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/comment.html :: comment"></div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button id="mapButton" type="button">Map</button>
+                </div>
+                <div class="grid-item1">
+                    <div class="col-md-6">
+                        <div id="map" style="width:600px; height: 400px; margin: auto; align: right;"></div>
+
+                        <script>
+
+                            function initMap() {
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    center: {lat: 47.498140, lng: 19.040550},
+                                    zoom: 10
+                                });
+                                var geocoder = new google.maps.Geocoder();
+                                document.getElementById('mapButton').addEventListener('click', function () {
+                                    geocodeAddress(geocoder, map);
+                                });
+                            }
+
+                            function geocodeAddress(geocoder, resultsMap) {
+                                var address = document.getElementById('address').value;
+                                geocoder.geocode({'address': address}, function (results, status) {
+                                    if (status === 'OK') {
+                                        var result = results[0].geometry.location
+
+                                        var lng = result.lng().value;
+                                        resultsMap.setCenter(results[0].geometry.location);
+                                        var marker = new google.maps.Marker({
+                                            map: resultsMap,
+                                            position: results[0].geometry.location
+                                        });
+                                    } else {
+                                        alert('Geocode was not successful for the following reason: ' + status);
+                                    }
+                                });
+                            }
+                        </script>
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAy7vm8P-uF0MsqDY3o9hc1htdb52XxrQ&callback=initMap&libraries=places">
+                        </script>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+

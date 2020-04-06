@@ -1,0 +1,10 @@
+<div th:fragment="project">
+	
+	<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+		<select class="form-control" th:field="*{project.id}">
+			<option value="0" selected="selected" style=" display: none;">Choose project to save...</option>
+			<option th:each="p : ${projects}" th:value="${p.id}" th:text="${p.name}">  </option>
+		</select>
+	</div>
+
+</div>

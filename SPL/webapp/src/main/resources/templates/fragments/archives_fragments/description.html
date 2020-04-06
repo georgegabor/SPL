@@ -1,0 +1,21 @@
+<div th:fragment="description">
+    ​
+    <div class="form-group">
+        <div class="form-group">
+            ​
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label>Description:</label>
+                ​
+                <select class="form-control" th:field="*{description}">
+                    ​
+                    ​
+                    <option th:value="Check-wiring">Check wiring</option>
+                    <option th:value="Check-for-missing-labels">Check for missing labels</option>
+                    <option th:value="Check-antenna-damage">Check antenna damage</option>
+                    ​
+                </select>
+                ​
+            </div>
+        </div>
+    </div>
+</div>

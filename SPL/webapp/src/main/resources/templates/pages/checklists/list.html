@@ -1,0 +1,22 @@
+<div th:fragment="list" xmlns:th="http://www.w3.org/1999/xhtml">
+    <table class="table table-striped table-responsive-md">
+        <tr>
+            <th>Item number</th>
+            <th>Project</th>
+            <th>Description</th>
+            <th>Severity</th>
+            <th>Status</th>
+            <th>Comment</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="ch, iStat : ${checklist}">
+            <td th:colspan="1" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${ch.itemNumber}"></td>
+            <td th:colspan="1" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${(ch.project != null)?ch.project.name:' - '}"></td>
+            <td th:colspan="(${ch.header}?'4':'1')" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${ch.description}"></td>
+            <td th:unless="${ch.header}" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${ch.severity}"></td>
+            <td th:unless="${ch.header}" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${ch.status}"></td>
+            <td th:unless="${ch.header}" th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')" th:text="${ch.comment}"></td>
+            <td><a th:href="@{/checklists/update/{id}?previewPage=list(id=${ch.id})}"><i title="edit" class="fa fa-edit" ::before></i></a></td>
+        </tr>
+    </table>
+</div>

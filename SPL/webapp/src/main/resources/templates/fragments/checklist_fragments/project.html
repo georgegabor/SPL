@@ -1,0 +1,10 @@
+<div th:fragment="project" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+        <label>Project</label>
+        <select class="form-control" th:field="*{project.id}">
+            <option th:each="p: ${projects}" th:value="${p.id}" th:text="${p.name}">  </option>
+        </select>
+    </div>
+
+</div>

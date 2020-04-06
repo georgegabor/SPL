@@ -1,0 +1,77 @@
+<div th:fragment="checklist">
+    <h2>Checklist</h2>
+    <div>
+        <ul class="to_do">
+            <li>
+                <div class="row">
+                    <table class="table table-striped table-responsive-md">
+                        <tr>
+                            <th>#</th>
+                            <th>Item number</th>
+                            <th>Description</th>
+                            <th>Snapshots</th>
+                            <th>Videos</th>
+                            <th>Status</th>
+                            <th>Comment</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr th:each="ch, iStat : ${checklist}">
+                            <td th:unless="${ch.header}">
+                                <input th:id="'check_'+${ch.id}" type="checkbox" th:checked="${ch.status != null}"
+                                       disabled/>
+                            </td>
+                            <td th:colspan="(${ch.header}?'2':'1')"
+                                th:style="(${ch.header}?'font-weight: bold; font-size: 18px;':'')"
+                                th:text="${ch.itemNumber}"></td>
+                            <td th:colspan="(${ch.header}?'4':'1')"
+                                th:style="(${ch.header}?'font-weight: bold;font-size: 18px;':'')"
+                                th:text="${ch.description}"></td>
+                            <td>
+                                <div th:id="'snapshot_container_'+${ch.id}">
+                                    <a th:each="snaps : ${ch.snapshots} "
+                                       th:href="@{'/attachments/checklist_snapshot/' + ${snaps.fileName}}"
+                                       th:target="_blank"><i title="show snapshot" class="fa fa-image" ::before></i>&nbsp;</a>&nbsp;
+                                </div>
+                            </td>
+                            <td>
+                                <div th:id="'archiveEntities_container_'+${ch.id}">
+                                    <a th:each="videos : ${ch.archiveEntities} " th:href="${videos.url}"
+                                       th:target="_blank"><i title="show archive video" class="fa fa-file-video-o"
+                                                             ::before></i>&nbsp;</a>&nbsp;
+                            </td>
+
+                            <td th:unless="${ch.header}">
+                                <select th:id="'status_'+${ch.id}" name="options" class="form-control">
+                                    <option hidden disabled selected value> -- select an option --</option>
+                                    <option th:selected="${ch.status != null && ch.status=='OK'}"
+                                            th:id="${ch.id} + '_OK'" value="OK">OK
+                                    </option>
+                                    <option th:selected="${ch.status != null && ch.status=='NOK'}"
+                                            th:id="${ch.id} + '_NOK'" value="NOK">NOK
+                                    </option>
+                                    <option th:selected="${ch.status != null && ch.status=='NAN'}"
+                                            th:id="${ch.id} + '_NAN'" value="NAN">NAN
+                                    </option>
+                                </select>
+                            </td>
+                            <td th:unless="${ch.header}">
+                                <textarea th:id="'comment_'+${ch.id}" th:text="${ch.comment}"></textarea>
+                            </td>
+                            <td th:unless="${ch.header}">
+                                <a th:id="'icon_send_answer_'+${ch.id}"
+                                   th:href="'javascript:sendAnswer(' + ${ch.id} +')'"><i class="fa fa-save icon-3"></i></a>&nbsp;
+                                <a th:id="'icon_screen_shot_'+${ch.id}" th:href="'javascript:snapshot('+ ${ch.id} +')'"><i
+                                        class="fa fa-camera"></i></a>&nbsp;
+                                <a th:id="'icon_start_record_'+${ch.id}"
+                                   th:href="'javascript:startArchive('+ ${ch.id} +')'"><i
+                                        class="fa fa-video-camera icon-start-record"></i></a>&nbsp;
+                                <a th:id="'icon_stop_record_'+${ch.id}" th:href="'javascript:stopArchive('+ ${ch.id} +')'"><i
+                                        class="fa fa-stop icon-stop-record"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

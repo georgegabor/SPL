@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'eu.matritel.spl'
+version = '0.1.4'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'com.tokbox', name: 'opentok-server-sdk', version: '4.3.0'
+	compile group: 'org.apache.poi', name: 'poi', version: '4.1.0'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
+	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.1'
+	testCompile("junit:junit")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile("org.springframework.security:spring-security-test")
+}

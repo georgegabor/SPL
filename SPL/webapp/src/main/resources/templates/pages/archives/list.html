@@ -1,0 +1,26 @@
+<div th:fragment="list" xmlns:th="http://www.w3.org/1999/xhtml">
+    <table class="table table-striped table-responsive-md">
+
+        <tr>
+            <th>Nr.</th>
+            <th>Project</th>
+            <th>Check_List</th>
+            <th>Session_Id</th>
+            <th>Archivie_Id</th>
+            <th>Url</th>
+
+        </tr>
+
+        <tr th:each="archiveDtoList, iStat : ${archiveDtoList}">
+
+            <td th:text="${iStat.count}">
+            <td th:text="${archiveDtoList.project}"></td>
+            <td th:text="${archiveDtoList.checkList}"></td>
+            <td th:text="${archiveDtoList.session}"></td>
+            <td th:text="${archiveDtoList.archivieId}"></td>
+            <td th:text="${archiveDtoList.url}"></td>
+
+        </tr>
+
+    </table>
+</div>

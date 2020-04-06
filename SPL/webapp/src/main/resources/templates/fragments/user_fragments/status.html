@@ -1,0 +1,16 @@
+<div th:fragment="status">
+
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <label for="status">Status: </label>
+            <select class="form-control" th:field="*{status}" >
+
+                <option th:value="ACTIVE" th:text="ACTIVE"></option>
+                <option th:value="INACTIVE" th:text="INACTIVE"></option>
+
+            </select>
+
+        </div>
+    </div>
+
+</div>

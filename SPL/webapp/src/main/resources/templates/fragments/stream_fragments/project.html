@@ -1,0 +1,25 @@
+<div th:fragment="project">
+  <h2>Projects</h2>
+  <div class="row">
+    <table class="table table-striped table-responsive-md">
+      <thead>
+        <th>Project name</th>
+        <th>Auditor</th>
+        <th>Engineer</th>
+        <th>Choose</th>
+      </thead>
+      <tbody>
+        <tr th:each="p : ${project}">
+          <td th:text="${p.name}"></td>
+          <td th:text="${(p.auditor!=null)?p.auditor.name:' - '}"></td>
+          <td th:text="${(p.engineer!=null)?p.engineer.name:' - '}"></td>
+          <td>
+            <form action="#" th:action="@{/stream/{id}(id=${p.id})}" method="GET">
+              <button type="submit" class="btn btn-success">Choose this</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div th:fragment="templateList">
+    <table class="table table-striped table-responsive-md">
+
+        <tr>
+
+            <th>Nr.</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Comment</th>
+            <th colspan="6">Actions</th>
+        </tr>
+
+        <tr th:each="project, iStat : ${projectTemplates}">
+
+            <td th:text="${iStat.count}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${(project.projectStatus != null)?project.projectStatus:' - '}"></td>
+            <td th:text="${project.date}"></td>
+            <td th:text="${project.comment}"></td>
+            <td><a th:href="@{/projects/template/update/{id}(id=${project.id})}">
+                <i class="fa fa-edit" ::before></i></a></td>
+            <td><a th:href="@{/projects/template/copy/{id}(id=${project.id})}">
+                <i class="fa fa-copy" ::before></i></a></td>
+            <td><a th:href="@{/projects/template/view/{id}(id=${project.id})}">
+                <i class="fa fa-eye" ::before></i></a></td>
+            <td><a th:href="@{/projects/template/createProject/{id}(id=${project.id})}">
+                <i class="fa fa-level-up" ::before></i></a></td>
+            <td><a th:href="@{/projects/template/archive/{id}(id=${project.id})}">
+                <i class="fa fa-archive" ::before></i></a></td>
+            <td><a th:href="@{/projects/template/delete/{id}(id=${project.id})}">
+                <i class="fa fa-trash" ::before></i></a></td>
+        </tr>
+
+    </table>
+</div>

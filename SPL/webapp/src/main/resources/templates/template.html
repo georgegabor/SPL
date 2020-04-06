@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="LayoutDefault">
+
+    <head>
+        <title th:text="${page_title}">NoTitle</title>
+        <header th:insert="fragments/header_infos.html :: header"> </header>
+    </head>
+
+    <body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a th:href="@{/}" class="site_title"><i class="fa fa-paw"></i> <span>MatritelLabs!</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <header th:insert="fragments/sidebar.html :: sidebar-menu"> </header>
+
+                </div>
+            </div>
+
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class=""><a th:href="@{/logout}">Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="right_col" role="main" th:insert="${page_path} :: ${page_section}">
+            </div>
+
+            <footer th:insert="fragments/footer.html :: footer">
+
+            </footer>
+
+        </div>
+    </div>
+        <header th:insert="fragments/templatejs.html :: templatejs"> </header>
+    </body>
+</html>

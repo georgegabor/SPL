@@ -1,0 +1,16 @@
+<div th:fragment="index" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div th:insert="fragments/stream_fragments/stream_buttons.html :: stream_buttons"></div>
+
+    <hr />
+
+    <div class = "container">
+            <div class="col-md-3">
+                <div th:insert="fragments/stream_fragments/stream_window.html :: stream_window"></div>
+            </div>
+            <div class="col-md-9">
+                <div th:insert="fragments/stream_fragments/checklist.html :: checklist"></div>
+            </div>
+    </div>
+
+    <div th:insert="fragments/stream_fragments/stream_js.html :: stream_js"></div>
+</div>

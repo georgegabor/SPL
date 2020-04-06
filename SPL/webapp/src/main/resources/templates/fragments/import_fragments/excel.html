@@ -1,0 +1,25 @@
+<form th:action="@{/excel/create}" method="post" enctype="multipart/form-data" xmlns:th="http://www.w3.org/1999/xhtml">
+	
+	<input type="file" th:name="file">
+	<input th:type="submit" value="Import" />
+	
+</form>
+
+<div th:fragment="excel" xmlns:th="http://www.w3.org/1999/xhtml">
+	
+	<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+		<form action="#" th:action="@{/excel/create}" method="post">
+			<!--		      th:object="${user}"-->
+			<!--		      method="post">-->
+			
+			<input type="file" th:name="file">
+			<input class="form-control has-feedback-left" id="file" placeholder="Upload file">
+			
+			<span class="fa form-control-feedback left" aria-hidden="true"></span>
+			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+				<button type="submit" class="btn btn-success">Submit</button>
+			</div>
+		</form>
+	</div>
+
+</div>

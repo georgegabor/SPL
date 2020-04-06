@@ -1,0 +1,45 @@
+<div class="row" th:fragment="update_form" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <form action="#" th:action="@{/checklists/update/{id}(id=${checklist.id})}"
+                  th:object="${checklist}" method="post">
+                <input type="hidden" th:value="${previewPage!=null?previewPage:''}" name="previewPage" />
+                <div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/project.html :: project"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/description.html :: description"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/severity.html :: severity"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/status.html :: status"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/header.html :: header"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div th:insert="fragments/checklist_fragments/comment.html :: comment"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div></html>

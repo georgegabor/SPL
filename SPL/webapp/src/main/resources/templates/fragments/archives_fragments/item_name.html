@@ -1,0 +1,17 @@
+    <div th:fragment="item_name">
+
+        <div class="form-group">
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <label> Item:</label>
+
+                <select class="form-control" th:field="*{itemName}">
+
+                    <option th:value="Cabels">Cabels</option>
+                    <option th:value="Labels">Labels</option>
+                    <option th:value="Antennas">Antennas</option>
+
+                </select>
+
+            </div>
+        </div>
+    </div>

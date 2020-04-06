@@ -1,0 +1,34 @@
+<div class="row" th:fragment="updateTemplate_form">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <form action="#" th:action="@{/projects/template/update/{id}(id=${project.id})}" th:object="${project}" method="post">
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/project_name.html :: project_name"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/date.html :: date"></div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div th:insert="fragments/project_fragments/comment.html :: comment"></div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

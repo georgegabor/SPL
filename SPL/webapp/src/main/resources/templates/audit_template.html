@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="LayoutDefault">
+
+<head>
+    <title th:text="${page_title}">NoTitle</title>
+    <header th:insert="fragments/header_infos.html :: header"> </header>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <div class="top_nav" style="margin-left: 0px;">
+            <div class="nav_menu">
+                <nav>
+                    <ul class="nav navbar-nav navbar-center">
+                        <li class=""><a th:href="@{/stream}">Back</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=""><a th:href="@{/logout}">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="right_col"  style="margin-left: 0px;" role="main" th:insert="${page_path} :: ${page_section}">
+        </div>
+
+        <footer th:insert="fragments/footer.html :: footer" style="margin-left: 0px;">
+
+        </footer>
+
+    </div>
+</div>
+<header th:insert="fragments/templatejs.html :: templatejs"> </header>
+</body>
+</html>

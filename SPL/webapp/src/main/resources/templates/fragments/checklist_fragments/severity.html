@@ -1,0 +1,12 @@
+<div th:fragment="severity" xmlns:th="http://www.w3.org/1999/xhtml">
+        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+        <label>Severity:</label>
+            <select class="form-control"  th:field="*{severity}" id="severity">
+                <option th:value="1" th:text="1"></option>
+                <option th:value="2" th:text="2"></option>
+                <option th:value="3" th:text="3"></option>
+                <option th:value="4" th:text="4"></option>
+                <option th:value="5" th:text="5"></option>
+            </select>
+    </div>
+</div>

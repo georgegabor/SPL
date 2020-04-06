@@ -1,0 +1,87 @@
+<div class="row" th:fragment="create_form" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <form action="#" th:action="@{/sites/create}" th:object="${site}" method="post">
+
+                <div class="wrapper-for-map">
+                    <div class="grid-item"
+                         style="width:200%; height: 250%; margin: auto; align: left;">
+
+                        <div>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div th:insert="fragments/sites_fragments/site_name.html :: site_name"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div th:insert="fragments/sites_fragments/address.html :: address"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div th:insert="fragments/sites_fragments/latitude.html :: latitude"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <div th:insert="fragments/sites_fragments/longitude.html :: longitude"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button id="mapButton" type="button">Map</button>
+                        </div>
+
+                    </div>
+
+                    <div class="grid-item1">
+                        <div class="col-md-6">
+                            <div id="map" style="width:600px; height: 400px; margin: auto; align: right;"></div>
+
+                            <script>
+
+              function initMap() {
+                 var map = new google.maps.Map(document.getElementById('map'), {
+                 center: {lat: 47.498140, lng: 19.040550},
+                 zoom: 10
+               });
+               var geocoder = new google.maps.Geocoder();
+                 document.getElementById('mapButton').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+             }
+  function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+          var result = results[0].geometry.location
+
+          var lng = result.lng().value;
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+
+                            </script>
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAy7vm8P-uF0MsqDY3o9hc1htdb52XxrQ&callback=initMap&libraries=places">
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

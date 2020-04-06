@@ -1,0 +1,11 @@
+<div th:fragment="auditor">
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+        <label for="auditor.id">Auditor name:</label>
+        <select class="form-control" th:field="*{auditor.id}">
+            <option th:each="user : ${auditors}" th:value="${user.id}" th:text="${user.name}">  </option>
+        </select>
+    </div>
+
+</div>
+

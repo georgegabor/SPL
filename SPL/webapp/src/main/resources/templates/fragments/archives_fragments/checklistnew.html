@@ -1,0 +1,60 @@
+<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <label> Item:</label>
+
+    <select class="form-control" th:field="*{item_name}">
+
+        <option th:value="Cabels">Cabels</option>
+        <option th:value="Labels">Labels</option>
+        <option th:value="Antennas">Antennass</option>
+
+    </select>
+
+</div>
+
+<div class="col-md-1 col-sm-12 col-xs-12 form-group">
+    <label>Severity:</label>
+
+    <select class="form-control" th:field="*{severity}">
+
+        <option th:value="Sub">Sub</option>
+        <option th:value="Mod">Mod</option>
+        <option th:value="Bad">Bad</option>
+
+    </select>
+
+</div>
+
+<div class="form-group">
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+        <label>Description:</label>
+
+        <select class="form-control" th:field="*{description}">
+
+            <option th:value="Check wiring">Check wiring</option>
+            <option th:value="Check for missing labels">Check for missing labels</option>
+            <option th:value="Check antenna damage">Check antenna damage</option>
+
+        </select>
+
+    </div>
+</div>
+
+<div class="form-group">
+
+    <div class="col-md-1 col-sm-12 col-xs-12 form-group has-feedback">
+        <label>Category:</label>
+
+        <select class="form-control" th:field="*{category}">
+
+            <option th:value="OK">Ok</option>
+            <option th:value="NOK">NOK</option>
+            <option th:value="NAN">NAN</option>
+
+        </select>
+
+    </div>
+</div>
+
+
+</div>

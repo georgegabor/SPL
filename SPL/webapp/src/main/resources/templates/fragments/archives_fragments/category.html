@@ -1,0 +1,20 @@
+    <div th:fragment="category">
+
+        <div class="form-group">
+            <div class="form-group">
+
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group has-feedback">
+                    <label>Category:</label>
+
+                    <select class="form-control" th:field="*{category}">
+
+                        <option th:value="OK">Ok</option>
+                        <option th:value="NOK">NOK</option>
+                        <option th:value="NAN">NAN</option>
+
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,47 @@
+<div th:fragment="sidebar-menu" id="sidebar-menu" class="main_menu_side hidden-print main_menu"
+     xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="menu_section">
+
+        <ul class="nav side-menu">
+            <li th:if="${#request.isUserInRole('ROLE_ADMIN')}"><a><i class="fa fa-home"></i> Users <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/users/create}">UserForm</a></li>
+                    <li><a th:href="@{/users/list}">UserList</a></li>
+                </ul>
+            </li>
+            <li th:if="${#request.isUserInRole('ROLE_ADMIN')}"><a><i class="fa fa-edit"></i> Projects <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/projects/create}">Custom Project</a></li>
+                    <li><a th:href="@{/projects/customProjectList}">Custom Project List</a></li>
+                    <li><a th:href="@{/projects/overview}">Overview</a></li>
+                    <li><a th:href="@{/projects/template}">Project Template</a></li>
+                    <li><a th:href="@{/projects/template/list}">Project Template List</a></li>
+                    <li><a th:href="@{/export/file}">Save Project to File</a></li>
+                </ul>
+            </li>
+            <li th:if="${#request.isUserInRole('ROLE_ADMIN')}"><a><i class="fa fa-desktop"></i> Checklist <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/checklists/create}">ChecklistForm</a></li>
+                    <li><a th:href="@{/checklists/list}">ChecklistList</a></li>
+                    <li><a th:href="@{/import/file}">Import from File</a></li>
+                </ul>
+            </li>
+            <li><a><i class="fa fa-home"></i> Audit <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/stream}">Project chooser</a></li>
+                </ul>
+            </li>
+            <li th:if="${#request.isUserInRole('ROLE_ADMIN')}"><a><i class="fa fa-desktop"></i> Sites <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/sites/create}">SiteForm</a></li>
+                    <li><a th:href="@{/sites/list}">SiteList</a></li>
+                </ul>
+            </li>
+            <li th:if="${#request.isUserInRole('ROLE_ADMIN')}"><a><i class="fa fa-home"></i> Archives <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/archives}">Archive List</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="container" th:fragment="overview" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="main_container">
+        ​
+        <!-- page content -->
+        <div class="middle_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>Projects overview panel</h3>
+                    </div>
+                    ​
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ​
+                <div class="clearfix"></div>
+                ​
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Projects</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a>
+                                            </li>
+                                            <li><a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                ​
+                                <!-- start project list -->
+                                <table class="table table-striped projects">
+                                    <tr>
+                                        <th style="width: 1%">#</th>
+                                        <th style="width: 20%">Project Name</th>
+                                        <th>Team members</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+
+                                    <tr th:each="project, iStat : ${overview}">
+                                        ​
+                                        <td th:text="${iStat.count}">
+                                        <td th:text="${project.name}"></td>
+                                        <td th:text="${project.auditor.name} + ${project.engineer.name}"></td>
+                                        <td>
+                                            <div class="progress progress_sm">
+                                                <div class="progress-bar bg-green" role="progressbar"
+                                                     data-transitiongoal="100"></div>
+                                            </div>
+                                            <small>100% Complete</small>
+                                        </td>
+                                        <td th:text="${project.projectStatus}"></td>
+
+<!--                                        It is just a sample below, will be deleted soon-->
+<!--                                        <td>-->
+<!--                                            <button type="button" class="btn btn-success btn-xs">Success</button>-->
+<!--                                        </td>-->
+                                        ​
+                                        <td>
+                                            <a th:href="@{/projects/update/{id}(id=${project.id})}"
+                                               class="btn btn-info" role="button"><i class="fa fa-pencil"></i> Edit</a>
+
+                                            <a th:href="@{/projects/view/{id}(id=${project.id})}"
+                                               class="btn btn-primary" role="button"><i class="fa fa-folder"></i> View</a>
+
+                                            <a th:href="@{/projects/delete/{id}(id=${project.id})}"
+                                               class="btn btn-danger" role="button"><i class="fa fa-trash-o"></i> Delete</a>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <!-- end project list -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+    </div>
+</div>

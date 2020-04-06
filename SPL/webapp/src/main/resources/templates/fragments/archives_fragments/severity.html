@@ -1,0 +1,18 @@
+    <div th:fragment="severity">
+
+        <div class="form-group">
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group has-feedback">
+
+                <label>Severity</label>
+
+                <select class="form-control" th:field="*{severity}">
+
+                    <option th:value="Low">Low</option>
+                    <option th:value="Middle">Middle</option>
+                    <option th:value="High">High</option>
+
+                </select>
+
+            </div>
+        </div>
+    </div>

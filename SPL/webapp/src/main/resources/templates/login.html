@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="LayoutDefault">
+
+<head>
+    <title>Login</title>
+    <header th:insert="fragments/header_infos.html :: header"> </header>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="login">
+<div>
+
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <div>
+                <img th:src="@{/images/login_logo.png}"  height="83" width="399">
+            </div>
+            <section class="login_content">
+<!--                    <h1>Welcome</h1>-->
+
+        <div class="right_col" role="main">
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group has-feedback">
+                        <label for="username">Email:</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-9 form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="Email" name="username" id="username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 col-sm-3 col-xs-3 form-group has-feedback">
+                        <label for="password">Password:</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-9 form-group has-feedback">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password"/>
+                    </div>
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-success pull-right" value="Sign In" style="background: #23B6F2; border: 1px solid #23B6F2;">Sign In</button>
+                </div>
+            </form>
+        </div>
+            </section>
+
+</div>
+    </div>
+</div>
+
+<header th:insert="fragments/templatejs.html :: templatejs"> </header>
+</body>
+</html>

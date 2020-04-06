@@ -1,0 +1,17 @@
+    <div th:fragment="role">
+
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label for="role">Role: </label>
+                <select class="form-control" th:field="*{role}" >
+
+                    <option th:value="ADMIN" th:text="ADMIN"></option>
+                    <option th:value="AUDITOR" th:text="AUDITOR"></option>
+                    <option th:value="ENGINEER"th:text="ENGINEER"></option>
+
+                </select>
+
+            </div>
+        </div>
+
+    </div>

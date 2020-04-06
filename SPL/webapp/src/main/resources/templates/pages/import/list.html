@@ -1,0 +1,18 @@
+<div th:fragment="list" xmlns:th="http://www.w3.org/1999/xhtml">
+  <table class="table table-striped table-responsive-md">
+    <tr>
+      <th>Project</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Severity</th>
+    </tr>
+    <tr th:each="ch, iStat : ${checklist}">
+      <td th:text="${ch.project != null && ch.project.name != null} ? ${ch.project.name} : ' - '"></td>
+      <td th:text="${ch.name != null} ? ${ch.name} : ' - '"></td>
+      <td th:text="${ch.description != null} ? ${ch.description} : ' - '"></td>
+      <td th:text="${ch.status != null} ? ${ch.status} : ' - '"></td>
+      <td th:text="${ch.severity != null} ? ${ch.severity} : ' - '"></td>
+    </tr>
+  </table>
+</div>

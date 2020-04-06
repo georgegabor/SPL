@@ -1,0 +1,10 @@
+<div th:fragment="engineer">
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+        <label for="engineer.id">Engineer name:</label>
+        <select class="form-control" th:field="*{engineer.id}">
+            <option th:each="user : ${engineers}" th:value="${user.id}" th:text="${user.name}">  </option>
+        </select>
+    </div>
+
+</div>
